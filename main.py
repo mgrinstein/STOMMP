@@ -1,23 +1,10 @@
 from skyfield.api import load
 from datetime import datetime
-from config import SATELLITE_NAME
+from config import SATELLITE_URL, SATELLITE_NAME
+from load_satellite_data import load_satellite_data
 
 def main():
-    # Load TLE data
-    satellites_url = 'http://celestrak.com/NORAD/elements/weather.txt'
-    satellites = load.tle_file(satellites_url)
-    for satellite in satellites:
-        if satellite.name == SATELLITE_NAME:
-            selected_satellite = satellite
-            break
-
-    if selected_satellite:
-        print(f"Selected satellite: {selected_satellite.name}")
-        print(f"NORAD ID: {selected_satellite.model.satellite_number}")
-        print(f"Orbital Parameters: {selected_satellite.model}")
-    else:
-        print("Satellite not found.")
-
+    satellite = load_satellite_data(SATELLITE_URL, SATELLITE_NAME)
     # Create timescale object and get current time
     ts = load.timescale()
     t = ts.now()
