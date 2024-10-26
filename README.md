@@ -9,15 +9,6 @@
 - User-defined output for map file generation.
 - Easy-to-extend modular design, allowing additional features or data sources.
 
-## Table of Contents
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Project Structure](#project-structure)
-4. [Examples](#examples)
-5. [Dependencies](#dependencies)
-6. [Contributing](#contributing)
-7. [License](#license)
-
 ## Installation
 
 To get started with **SETTLE**, clone the repository and install the required dependencies:
