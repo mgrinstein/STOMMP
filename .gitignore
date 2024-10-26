@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Data and TLE files, but keep requirements
+data/
+*.txt
+!requirements.txt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Virtual environment directories
+myenv/
+
+# Html outputs
+*.html
