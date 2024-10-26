@@ -1,3 +1,5 @@
+from skyfield.api import load
+
 def load_satellite_data(satellites_url, satellite_name): 
     satellites = load.tle_file(satellites_url)
     for satellite in satellites:
