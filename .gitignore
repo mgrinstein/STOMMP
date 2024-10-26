@@ -12,5 +12,8 @@ data/
 # Virtual environment directories
 myenv/
 
+# macOS specific files
+.DS_Store
+
 # Html outputs
 *.html
