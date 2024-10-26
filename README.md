@@ -1,4 +1,4 @@
-# SETTLE - Satellite Element Tracking and Two-Line Element Set
+# SETTLE - Satellite Element Tracking via TLE
 
 **SETTLE** is a Python-based tool for tracking satellite positions using Two-Line Element (TLE) data and visualizing satellite positions on an interactive map. The project leverages the `Skyfield` library to compute satellite orbits from TLE data and `folium` for map visualization, allowing for real-time plotting of selected satellite positions.
 
