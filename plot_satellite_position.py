@@ -6,6 +6,11 @@ def plot_satellite_position(satellite_data, output_path):
     # Create timescale object and get current time
     ts = load.timescale()
     time_now = ts.now()
+    print(f"Time: {time_now}")
+    time_now_utc = time_now.utc_strftime()
+    print(f"Time utc: {time_now_utc}")
+
+
 
     # Get satellite position at the current time
     geocentric = satellite_data.at(time_now)
