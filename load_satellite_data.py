@@ -1,7 +1,7 @@
 from skyfield.api import load
 
-def load_satellite_data(satellites_url, satellite_name): 
-    satellites = load.tle_file(satellites_url)
+def load_satellite_data(satellite_api_url, satellite_name): 
+    satellites = load.tle_file(satellite_api_url)
     for satellite in satellites:
         if satellite.name == satellite_name:
             selected_satellite = satellite
