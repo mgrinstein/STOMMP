@@ -16,7 +16,7 @@
         width=30%
         title="Example"
 />
-<figcaption>Example: a plot of NOAA 19's position at tt=2460610.1853677994.</figcaption>
+<figcaption>Example: a plot of NOAA 19's position at tt=2460610.1853677994 (2024-10-26 16:25:47 UTC).</figcaption>
 </figure>
 
 ## Installation
