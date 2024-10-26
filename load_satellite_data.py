@@ -9,7 +9,7 @@ def load_satellite_data(satellites_url, satellite_name):
 
     if selected_satellite:
         print(f"Selected satellite: {selected_satellite.name}")
-        print(f"NORAD ID: {selected_satellite.model.satellite_number}")
+        print(f"Model: {selected_satellite.model}")
         print(f"Orbital Parameters: {selected_satellite.model}")
         return selected_satellite
     else:
