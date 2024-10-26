@@ -9,6 +9,16 @@
 - User-defined output for map file generation.
 - Easy-to-extend modular design, allowing additional features or data sources.
 
+### Plot output example
+<figure>
+<img
+        src="examples/NOAA_19_example.png" 
+        width=30%
+        title="Example"
+/>
+<figcaption>Example: a plot of NOAA 19's position at tt=2460610.1853677994.</figcaption>
+</figure>
+
 ## Installation
 
 To get started with **SETTLE**, clone the repository and install the required dependencies:
