@@ -1,5 +1,32 @@
 from skyfield.api import EarthSatellite, load
 
+def load_satellite_data(satellite_sources, desired_satellite): 
+    selected_satellite = None
+    
+    for category_name, category_url in satellite_sources.items():
+        try:
+            satellites_in_category = fetch_tle_data(category_url)
+            parsed_satellites = parse_satellite_data(satellites_in_category)
+            print(f"Successfully fetched {len(parsed_satellites)} satellites.")
+            
+            for satellite in parsed_satellites:
+
+                if satellite.name == desired_satellite:
+                    print(f"Found satellite {desired_satellite} in source: {category_name} ({category_url})")
+                    selected_satellite = satellite
+                    break
+            if selected_satellite:
+                break
+        except Exception as e:
+            print(f"Failed to load TLE data from {category_name} ({category_url}): {e}")
+            continue
+
+    if selected_satellite:
+        return selected_satellite
+    else:
+        print(f"Satellite {desired_satellite} not found in any of the provided sources.")
+        return None
+
 def fetch_tle_data(url):
     import requests
     
@@ -29,30 +56,3 @@ def parse_satellite_data(tle_data):
         satellite = EarthSatellite(line1, line2, satellite_name)
         satellites.append(satellite)
     return satellites
-
-def load_satellite_data(satellite_sources, desired_satellite): 
-    selected_satellite = None
-    
-    for category_name, category_url in satellite_sources.items():
-        try:
-            satellites_in_category = fetch_tle_data(category_url)
-            parsed_satellites = parse_satellite_data(satellites_in_category)
-            print(f"Successfully fetched {len(parsed_satellites)} satellites.")
-            
-            for satellite in parsed_satellites:
-
-                if satellite.name == desired_satellite:
-                    print(f"Found satellite {desired_satellite} in source: {category_name} ({category_url})")
-                    selected_satellite = satellite
-                    break
-            if selected_satellite:
-                break
-        except Exception as e:
-            print(f"Failed to load TLE data from {category_name} ({category_url}): {e}")
-            continue
-
-    if selected_satellite:
-        return selected_satellite
-    else:
-        print(f"Satellite {desired_satellite} not found in any of the provided sources.")
-        return None
