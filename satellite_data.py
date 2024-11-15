@@ -1,24 +1,24 @@
-from skyfield.api import EarthSatellite, load
+from skyfield.api import EarthSatellite
 
 def load_satellite_data(satellite_sources, desired_satellite): 
     selected_satellite = None
     
-    for category_name, category_url in satellite_sources.items():
+    for source_name, source_url in satellite_sources.items():
         try:
-            satellites_in_category = fetch_tle_data(category_url)
-            parsed_satellites = parse_satellite_data(satellites_in_category)
+            satellites = fetch_tle_data(source_url)
+            parsed_satellites = parse_satellite_data(satellites)
             print(f"Successfully fetched {len(parsed_satellites)} satellites.")
             
-            for satellite in parsed_satellites:
+            for parsed_satellite in parsed_satellites:
 
-                if satellite.name == desired_satellite:
-                    print(f"Found satellite {desired_satellite} in source: {category_name} ({category_url})")
-                    selected_satellite = satellite
+                if parsed_satellite.name == desired_satellite:
+                    print(f"Found satellite {desired_satellite} in source: {source_name} ({source_url})")
+                    selected_satellite = parsed_satellite
                     break
             if selected_satellite:
                 break
         except Exception as e:
-            print(f"Failed to load TLE data from {category_name} ({category_url}): {e}")
+            print(f"Failed to load TLE data from {source_name} ({source_url}): {e}")
             continue
 
     if selected_satellite:
