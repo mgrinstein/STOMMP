@@ -54,6 +54,6 @@ CELESTRACK_SATELLITE_SOURCES = {
 'Education': 'https://celestrak.org/NORAD/elements/gp.php?GROUP=education&FORMAT=tle',
 'Miscellaneous Military': 'https://celestrak.org/NORAD/elements/gp.php?GROUP=military&FORMAT=tle',
 'Radar Calibration': 'https://celestrak.org/NORAD/elements/gp.php?GROUP=radar&FORMAT=tle',
-'Cubesats': '',
+'Cubesats': 'https://celestrak.org/NORAD/elements/gp.php?GROUP=cubesat&FORMAT=tle',
 'Other Satellites': 'https://celestrak.org/NORAD/elements/gp.php?GROUP=other&FORMAT=tle'
 }
