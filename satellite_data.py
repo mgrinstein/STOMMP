@@ -1,8 +1,6 @@
 from skyfield.api import EarthSatellite
 
 def load_satellite_data(satellite_sources, desired_satellite): 
-    selected_satellite = None
-    
     for source_name, source_url in satellite_sources.items():
         try:
             satellites = fetch_tle_data(source_url)
@@ -10,22 +8,16 @@ def load_satellite_data(satellite_sources, desired_satellite):
             print(f"Successfully fetched {len(parsed_satellites)} satellites.")
             
             for parsed_satellite in parsed_satellites:
-
                 if parsed_satellite.name == desired_satellite:
                     print(f"Found satellite {desired_satellite} in source: {source_name} ({source_url})")
-                    selected_satellite = parsed_satellite
-                    break
-            if selected_satellite:
-                break
+                    return parsed_satellite
         except Exception as e:
             print(f"Failed to load TLE data from {source_name} ({source_url}): {e}")
             continue
 
-    if selected_satellite:
-        return selected_satellite
-    else:
-        print(f"Satellite {desired_satellite} not found in any of the provided sources.")
-        return None
+    print(f"Satellite {desired_satellite} not found in any of the provided sources.")
+    return None
+
 
 def fetch_tle_data(url):
     import requests
