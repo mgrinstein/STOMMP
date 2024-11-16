@@ -1,18 +1,19 @@
 from skyfield.api import EarthSatellite
 
-def load_satellite_data(satellite_sources, desired_satellite): 
-    for source_name, source_url in satellite_sources.items():
+def load_satellite_data(satellite_groups, desired_satellite, data_format): 
+    for group_name, group in satellite_groups.items():
+        full_url = get_full_url(group, data_format)
         try:
-            satellites = fetch_tle_data(source_url)
+            satellites = fetch_tle_data(full_url)
             parsed_satellites = parse_satellite_data(satellites)
             print(f"Successfully fetched {len(parsed_satellites)} satellites.")
             
             for parsed_satellite in parsed_satellites:
                 if parsed_satellite.name == desired_satellite:
-                    print(f"Found satellite {desired_satellite} in source: {source_name} ({source_url})")
+                    print(f"Found satellite {desired_satellite} in source: {group_name} ({full_url})")
                     return parsed_satellite
         except Exception as e:
-            print(f"Failed to load TLE data from {source_name} ({source_url}): {e}")
+            print(f"Failed to load data for {group_name} ({full_url}): {e}")
             continue
 
     print(f"Satellite {desired_satellite} not found in any of the provided sources.")

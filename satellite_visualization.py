@@ -24,10 +24,10 @@ def plot_satellite_position(satellite_data):
     tooltip = f'{satellite_data.name} (Altitude: {altitude:.2f} km)'
     folium.Marker([latitude, longitude], popup=tooltip).add_to(m)
 
-    save_and_display_map(map)
+    save_map(map)
 
 
-def save_and_display_map(map_object):
+def save_map(map_object):
     output_dir = 'output'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
