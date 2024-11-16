@@ -22,7 +22,7 @@ def plot_satellite_position(satellite_data):
     map = folium.Map(location=[latitude, longitude], zoom_start=4)
 
     tooltip = f'{satellite_data.name} (Altitude: {altitude:.2f} km)'
-    folium.Marker([latitude, longitude], popup=tooltip).add_to(m)
+    folium.Marker([latitude, longitude], popup=tooltip).add_to(map)
 
     save_map(map)
 
@@ -33,6 +33,10 @@ def save_map(map_object):
         os.makedirs(output_dir)
     
     output_file = os.path.join('output', 'satellite_position.html')
-    map_object.save(output_file)
-    print(f"Map saved to {output_file}")
+    try:
+        map_object.save(output_file)
+        print(f"Map saved to {output_file}")
+    except Exception as e:
+        print(f"Error saving map: {e}")
+        raise
     return map_object
