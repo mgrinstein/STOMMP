@@ -48,3 +48,7 @@ def parse_satellite_data(tle_data):
         satellite = EarthSatellite(line1, line2, satellite_name)
         satellites.append(satellite)
     return satellites
+
+def get_full_url(group_value, format_value):
+    base_url = "https://celestrak.org/NORAD/elements/gp.php?GROUP={}&FORMAT={}"
+    return base_url.format(group_value, format_value)
