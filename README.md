@@ -1,12 +1,11 @@
 # STOP - Satellite Tracking via Orbit Propagation
 
-**STOP** is a Python-based tool for tracking satellite positions using orbit propagation (from TLE or OMM sources) and visualizing satellite positions on an interactive map. The project leverages the `Skyfield` library to compute satellite orbits and `folium` for map visualization, allowing for real-time plotting of selected satellite positions.
+**STOP** is a Python-based tool for tracking satellite positions using orbit propagation (using either TLE or OMM sources from [Celestrak](https://celestrak.org/)) and visualizing satellite positions on an interactive map. The project leverages the `Skyfield` library to compute satellite orbits and `folium` for map visualization, allowing for real-time plotting of selected satellite positions.
 
 ## Features
-- Retrieve and process satellite data from Celestrak.
-- Calculate and plot the orbit of a selected satellite at a selected time on a map.
-- Dynamic visualization of satellite positions.
-- User-defined output for map file generation.
+- Retrieve and process satellite orbit data.
+- Calculate the orbit of a selected satellite at a selected time.
+- Dynamic visualize satellite positions on a map.
 - Easy-to-extend modular design, allowing additional features or data sources.
 
 <!-- ### Plot output example
