@@ -1,6 +1,7 @@
 from skyfield.api import EarthSatellite
+from config import CELESTRACK_SATELLITE_GROUPS, SATELLITE_NAME, FORMAT
 
-def load_satellite_data(satellite_groups, desired_satellite, data_format): 
+def load_satellite_data(satellite_groups=CELESTRACK_SATELLITE_GROUPS, desired_satellite=SATELLITE_NAME, data_format=FORMAT): 
     for group_name, group in satellite_groups.items():
         full_url = get_full_url(group, data_format)
         try:
