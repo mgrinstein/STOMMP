@@ -1,8 +1,9 @@
 import folium
+import os
 from skyfield.api import load
 
 
-def plot_satellite_position(satellite_data, output_path):
+def plot_satellite_position(satellite_data):
     # Create timescale object and get current time
     ts = load.timescale()
     time_now = ts.now()
@@ -18,12 +19,12 @@ def plot_satellite_position(satellite_data, output_path):
     latitude = subpoint.latitude.degrees
     longitude = subpoint.longitude.degrees
     altitude = subpoint.elevation.km
-    m = folium.Map(location=[latitude, longitude], zoom_start=4)
+    map = folium.Map(location=[latitude, longitude], zoom_start=4)
 
     tooltip = f'{satellite_data.name} (Altitude: {altitude:.2f} km)'
     folium.Marker([latitude, longitude], popup=tooltip).add_to(m)
 
-    save_and_display_map(m, output_path)
+    save_and_display_map(map)
 
 
 def save_and_display_map(map_object):
