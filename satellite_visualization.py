@@ -26,7 +26,12 @@ def plot_satellite_position(satellite_data, output_path):
     save_and_display_map(m, output_path)
 
 
-def save_and_display_map(map_object, output_path="output/satellite_position.html"):
-    map_object.save(output_path)
-    print(f"Map saved to {output_path}")
+def save_and_display_map(map_object):
+    output_dir = 'output'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    output_file = os.path.join('output', 'satellite_position.html')
+    map_object.save(output_file)
+    print(f"Map saved to {output_file}")
     return map_object
