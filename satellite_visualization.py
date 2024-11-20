@@ -27,7 +27,8 @@ def plot_satellite_position(satellite_data):
         zoom_start=2.5,
         min_zoom=2,
         max_zoom=10,
-        max_bounds=True
+        max_bounds=True,
+        tiles='CartoDB_Voyager'
     )
     
     tooltip = f'{satellite_data.name} (Altitude: {altitude:.2f} km)'
@@ -46,7 +47,7 @@ def plot_satellite_position(satellite_data):
     latitude_longitude_pairs = adjust_longitudes(latitude_longitude_pairs)
 
     # Draw the trajectory
-    folium.PolyLine(latitude_longitude_pairs, color="red", weight=2.5, opacity=1).add_to(map)
+    folium.PolyLine(latitude_longitude_pairs, color="blue", weight=2.5, opacity=1, dash_array='10').add_to(map)
 
     # Save the map
     save_map(map)

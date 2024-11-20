@@ -15,5 +15,6 @@ myenv/
 # macOS specific files
 .DS_Store
 
-# Html outputs
+# Outputs
 *.html
+output/
