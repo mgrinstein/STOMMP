@@ -4,7 +4,7 @@ from skyfield.api import load, utc
 from datetime import timedelta, datetime, timezone
 import folium
 import numpy as np
-
+from config import OUTPUT_PATH
 
 def plot_satellite_position(satellite_data):
     # Create timescale object and get current time
@@ -64,12 +64,7 @@ def adjust_longitudes(latitude_longitude_pairs):
         previous_longitude = longitude
     return adjusted_pairs
 
-def save_map(map_object):
-    output_dir = 'output'
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    
-    output_file = os.path.join('output', 'satellite_position.html')
+def save_map(map_object, output_file=OUTPUT_PATH):
     try:
         map_object.save(output_file)
         print(f"Map saved to {output_file}")

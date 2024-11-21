@@ -16,5 +16,4 @@ myenv/
 .DS_Store
 
 # Outputs
-*.html
-output/
+satellite_position.html

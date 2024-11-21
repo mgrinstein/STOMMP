@@ -1,5 +1,5 @@
 SATELLITE_NAME = 'ISS (ZARYA)'
-OUTPUT_PATH = "output/satellite_position.html"
+OUTPUT_PATH = "satellite_position.html"
 FORMAT = 'tle'
 CELESTRACK_SATELLITE_GROUPS = {
     'Last 30 Days\' Launches': 'last-30-days',
