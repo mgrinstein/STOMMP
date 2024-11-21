@@ -27,7 +27,6 @@ def plot_satellite_position(satellite_data):
         zoom_start=2.5,
         min_zoom=2,
         max_zoom=10,
-        max_bounds=True,
         tiles='CartoDB_Voyager'
     )
     
